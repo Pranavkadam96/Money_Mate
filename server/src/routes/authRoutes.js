@@ -127,7 +127,7 @@ router.post('/forgot-password', async (req, res, next) => {
     user.resetPasswordExpires = new Date(Date.now() + 30 * 60 * 1000); // 30 minutes
     await user.save({ validateBeforeSave: false });
 
-    const clientUrl = process.env.CLIENT_URL || 'http://localhost:5173';
+    const clientUrl = process.env.CLIENT_URL || `${req.protocol}://${req.get('host')}`;
     const resetUrl = `${clientUrl}/reset-password?token=${rawToken}`;
 
     const smtpConfigured = Boolean(process.env.SMTP_HOST && process.env.SMTP_USER && process.env.SMTP_PASS);
