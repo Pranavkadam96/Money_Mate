@@ -1,0 +1,63 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: 'Plus Jakarta Sans', 'Inter', system-ui, sans-serif;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-slate-50 text-slate-900 dark:bg-navy-950 dark:text-slate-100 transition-colors duration-200;
+  }
+}
+
+@layer components {
+  .card {
+    @apply bg-white dark:bg-navy-900/90 border border-slate-200/80 dark:border-navy-800 rounded-2xl shadow-card transition-all duration-200;
+  }
+
+  .card-hover {
+    @apply card hover:shadow-card-lg hover:-translate-y-0.5;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-blue-600 to-navy-700 px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:from-blue-500 hover:to-navy-600 focus:outline-none focus:ring-2 focus:ring-blue-500/40 disabled:opacity-60 disabled:cursor-not-allowed transition-all duration-150;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl border border-slate-200 dark:border-navy-700 bg-white dark:bg-navy-800 px-4 py-2.5 text-sm font-semibold text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-navy-700/80 focus:outline-none focus:ring-2 focus:ring-blue-500/30 disabled:opacity-60 transition-all duration-150;
+  }
+
+  .btn-danger {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl bg-rose-600 px-4 py-2.5 text-sm font-semibold text-white hover:bg-rose-500 focus:outline-none focus:ring-2 focus:ring-rose-500/40 disabled:opacity-60 transition-all duration-150;
+  }
+
+  .input-field {
+    @apply w-full rounded-xl border border-slate-200 dark:border-navy-700 bg-white dark:bg-navy-950/70 px-3.5 py-2.5 text-sm text-slate-900 dark:text-slate-100 placeholder:text-slate-400 dark:placeholder:text-slate-500 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20 transition-all duration-150;
+  }
+
+  .label-text {
+    @apply block text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-1.5;
+  }
+}
+
+/* Custom sleek scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(100, 116, 139, 0.35);
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(100, 116, 139, 0.55);
+}
